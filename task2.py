@@ -51,9 +51,6 @@ daysDiff = endDate - startDate
 totalDays = daysDiff.days
 
 
-
-
-
 t =turtle.Turtle()
 
 screen = t.getscreen()
