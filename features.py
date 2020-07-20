@@ -1,13 +1,9 @@
 from tkinter import *
 
 import json
-
 import math 
-
 import collections
-
 import datetime
-
 import turtle
 
 def plot():
@@ -163,6 +159,11 @@ def reset():
     screen.resetscreen()
 
     t.bye()
+
+
+
+
+
 
 
 
