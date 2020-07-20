@@ -5,110 +5,146 @@ author: Pooja Gaikwad
 
 import json
 
+import turtle
 
-from datetime import timedelta, date
+import datetime
 
+import collections
 
-import matplotlib.pyplot as plt
+import math
 
 
 
+with open('data.json') as f :
 
+    data = json.load(f)
 
+    
 
+# Extracting sub dictionary and sorting it
 
+prices = data["rates"]
 
-def daterange(start_date, end_date):
+prices =collections.OrderedDict(sorted(prices.items()))
 
 
-    for n in range(int((end_date - start_date).days)):
 
+# Extracting x-axis value
 
-        yield start_date + timedelta(n)
+maxCurValue = 0
 
+for day ,value in prices.items():
 
+    if value['INR'] > maxCurValue:
 
+        maxCurValue = value['INR']
 
 
 
+# Extracting y-axis value
 
+startDate = datetime.datetime(2020,1,1) 
 
-with open('data.json') as f:
+endDate = datetime.datetime(2020,1,31) 
 
+daysDiff = endDate - startDate
 
-    perf = json.load(f)
+totalDays = daysDiff.days
 
 
-rates=perf['rates']
 
 
-print("Enter currency symbol (eg: INR for Indian Rupees)")
 
+t =turtle.Turtle()
 
-sym=input()
+screen = t.getscreen()
 
+screen.title("INR compared with EUR X-> Dates & Y-> currency value")
 
-print("Enter start date (YYYY-MM-DD)")
+screen.tracer(30)
 
+screen.setworldcoordinates(0,0,maxCurValue,totalDays)
 
-y,m,d=map(int,input().split("-"))
+t.up()
 
+t.goto(0.1,0.1)
 
-start_date = date(y,m,d)
+t.write('(0,0)')
 
+t.goto(0,0)
 
-print("Enter End date (YYYY-MM-DD)")
+t.pensize(3)
 
+t.color('blue')
 
-y,m,d=map(int,input().split("-"))
+t.down()
 
 
-end_date = date(y,m,d)
 
+# plotting graph and math.log for flattening graph
 
-date=[]
+for day , value in prices.items():
 
+    day =datetime.datetime.strptime(day,'%Y-%m-%d')
 
-l1=[]
+    if day>=startDate and day<=endDate:
 
+        daysDiff=day - startDate
 
-for single_date in daterange(start_date, end_date):
+        totalDay =daysDiff.days
 
+        print(value['INR'])
 
-    try:
+        t.goto(totalDay,math.log(value['INR']))
 
 
-        l1.append(rates[single_date.strftime("%Y-%m-%d")][sym])
 
+t.up()
 
-        date.append(single_date.strftime("%Y-%m-%d"))
+t.showturtle()
 
+t.goto(20,20)
 
+t.down()
 
+t.write("x->Dates Y-> currency value")
 
+t.up()
 
-    except:
+t.goto(19,19)
 
+t.down()
 
-       None
+t.color('green')
 
+t.write("INR-> blue")
 
-plt.figure(figsize=(25,15))       
+t.up()
 
+t.color('black')
 
-plt.plot(date,l1,label=sym)
+t.pensize(1)
 
+t.goto(-0.3,-0.3)
 
-plt.xlabel("Dates in range of entered dates")
+t.down()
 
+t.fd(80)
 
-plt.xticks(rotation=90)
+t.bk(82)
 
+t.fd(2)
 
-plt.ylabel("INR exchange rates")
+t.rt(90)
 
+t.fd(2)
 
-plt.legend(loc="upper left")
+t.bk(2)
 
+t.rt(180)
 
-plt.show() 
+t.fd(20)
+
+screen.update()
+
+screen.exitonclick()  
