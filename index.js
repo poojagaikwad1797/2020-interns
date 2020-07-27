@@ -221,9 +221,58 @@
         getData();
       };
 
-       
+       function task2() {
+        var myLineChart = new LineChart({
+          canvasId: "task2",
+          minX: 0,
+          minY: 0,
+          maxX: 31,
+          maxY: 100,
+          unitsPerTickX: 1,
+          unitsPerTickY: 5,
+        });
+        function getData() {
+          var xhttp = new XMLHttpRequest();
+
+          xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+              var obj = JSON.parse(xhttp.response);
+              var dateData = obj.rates;
+              var cRates = [];
+              var data = [];
+              var date = Object.keys(dateData);
+              for (var i = 1; i < 32; i++) {
+                cRates[i] = dateData[date[i]].INR;
+              }
+              for (var j = 1; j < 32; j++) {
+                data.push({ x: j, y: cRates[j] });
+              }
+
+              myLineChart.drawLine(data, "gold", 1);
+              console.log(data);
+              var cRates = [];
+              var data = [];
+              var date = Object.keys(dateData);
+              for (var i = 1; i < 32; i++) {
+                cRates[i] = dateData[date[i]].GBP;
+              }
+              for (var j = 1; j < 32; j++) {
+                data.push({ x: j, y: cRates[j] });
+              }
+
+              myLineChart.drawLine(data, "blue", 3);
+              console.log(data);
+            }
+          };
+          xhttp.open("GET", "data.json", true);
+          xhttp.send();
+        }
+        getData();
+      };
+  
       window.onload = function () {
         task1();
+        task2();
       };
     
     
