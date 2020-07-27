@@ -1,0 +1,21 @@
+body{
+   background-color: #5E595E;
+}
+h1,h2,h3{
+  color: white;
+}
+canvas{
+  border: 1px solid black; 
+  background-color: #9C409C;
+  margin-left: 300px;
+}
+select{
+  width: 60px;
+  height: 30px;
+  background-color: gold;
+  margin-left: 50px;
+}
+input{
+  height: 30px;
+  background-color: gold;
+}
