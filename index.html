@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>winsoft Assignment</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+<!-- Task 1-->
+<h1>  Exchange Rate </h1>
+<h2>
+     1) Plot the graph of INR exchange rate against EUR from 1 Jan 2019 to 31 Jan
+      2019
+</h2>
+<canvas
+      id="task1"
+      width="700"
+      height="300"
+    ></canvas>
+
+<!-- Task 2-->
+<h2>
+     2) Plot the graph of INR and GBP exchange rate against EUR from 1 Jan 2019 to
+      31 Jan 2019.
+</h2>
+    <canvas
+      id="task2"
+      width="700"
+      height="700"
+      style="border: 1px solid black;"
+    ></canvas>
+<!-- Task 3-->
+<h2>
+     3) Plot the graph of INR and GBP exchange rate against EUR from 1 Jan 2019 to
+      31 Jan 2019 and also indicate the current rate for INR and GBP
+</h2>
+    <h3>current rate for INR : <span id="INR"></span></h3>
+    <h3>current rate for GBP : <span id="GBP"></span></h3>
+    <canvas
+      id="task3"
+      width="700"
+      height="700"
+      style="border: 1px solid black;"
+    >
+    </canvas>
+
+<!-- Feature 2-->
+<h2>
+     4) Make selection of currency symbol dynamic, so we can choose any currency
+      and the graph should update accordingly
+</h2>
+    <canvas
+      id="feature2"
+      width="700"
+      height="300"
+      style="border: 1px solid black;"
+    ></canvas>
+    <br />
+    <select id="con" onchange="feature2()">
+      <option value="INR"> INR </option>
+      <option value="CAD"> CAD </option>
+      <option value="HKD"> HKD </option>
+      <option value="ISK"> ISK </option>
+      <option value="PHP"> PHP </option>
+      <option value="DKK"> DKK </option>
+      <option value="HUF"> HUF </option>
+      <option value="CZK"> CZK </option>
+      <option value="AUD"> AUD </option>
+      <option value="RON"> RON </option>
+      <option value="SEK"> SEK </option>
+      <option value="IDR"> IDR </option>
+
+      <option value="BRL"> BRL </option>
+      <option value="RUB"> RUB </option>
+      <option value="HRK"> HRK </option>
+      <option value="JPY"> JPY </option>
+      <option value="THB"> THB </option>
+      <option value="CHF"> CHF </option>
+      <option value="SGD"> SGD </option>
+      <option value="PLN"> PLN </option>
+      <option value="BGN"> BGN </option>
+      <option value="TRY"> TRY </option>
+      <option value="CNY"> CNY </option>
+      <option value="NOK"> NOK </option>
+      <option value="NZD"> NZD </option>
+      <option value="ZAR"> ZAR </option>
+      <option value="USD"> USD </option>
+      <option value="MXN"> MXN </option>
+      <option value="ILS"> ILS </option>
+      <option value="GBP"> GBP </option>
+      <option value="KRW"> KRW </option>
+      <option value="MYR"> MYR </option>
+    </select>
+
+    <!-- Feature 1-->
+
+<input type="date" name="daterange" value="01/01/2018 - 01/15/2018" />
+</body>
+	</html>
+
+
+
+
+
